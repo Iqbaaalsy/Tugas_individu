@@ -1,6 +1,7 @@
 package com.example.tugas;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,11 +43,15 @@ public class NegaraAdapter extends BaseAdapter {
         Object p = getItem(position);
 
         if (p != null) {
-//            imgView = v.findViewById(R.id.imgView);
+            ImageView imgView = v.findViewById(R.id.imgView);
             text1 = v.findViewById(R.id.text1);
             text2 = v.findViewById(R.id.text2);
 
-//            imgView.setImageDrawable(drawable);
+            int id = activity.getResources().getIdentifier(data[position][2],
+                    "drawable", activity.getPackageName());
+            Drawable drawable = activity.getResources().getDrawable(id);
+
+            imgView.setImageDrawable(drawable);
             text1.setText(data[position][0]);
             text2.setText(data[position][1]);
         }
